@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion, type Variants, useReducedMotion } from 'framer-motion';
 
 // --- Project Status Data ---

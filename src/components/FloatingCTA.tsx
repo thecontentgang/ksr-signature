@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 interface FloatingCTAProps {
   onClick: () => void;
