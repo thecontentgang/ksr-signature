@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import "tailwindcss";
+
+/* 1. Load the external font */
+@font-face {
+  font-family: 'Anola';
+  /* Make sure this path matches where you put the font file in your project */
+  src: url('/anola.otf') format('opentype'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* --- The Golden Tranquility Palette --- */
+  --color-sandstone: #d2ac67; 
+  --color-silk: #f4e4d5;      
+  --color-pearl: #e0e0d8;     
+  --color-moss: #7b8e78;      
+  --color-umber: #8a6f52;     
+
+  /* --- KSR Brand Colors --- */
+  --color-ksr-primary: #742724;   /* Deep Maroon from "KSR" text */
+  --color-ksr-secondary: #b43633; /* Bright Red from "HOMES" text */
+  --color-ksr-dark: #5d2e2c;      /* Dark Brown from the shaded building blocks */
+
+  /* --- Custom Fonts --- */
+  /* 1. Set Ysabeau as the global default body font */
+  --font-sans: 'Ysabeau', sans-serif;
+  
+  /* 2. Keep Anola as a utility class (font-anola) for headings */
+  --font-anola: 'Anola', sans-serif;
+}
+
+/* Optional: Ensure the body explicitly uses the new default sans font if needed */
+@layer base {
+  body {
+    @apply font-sans text-slate-700 bg-slate-50;
+  }
+}
