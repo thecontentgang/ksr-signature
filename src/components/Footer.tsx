@@ -183,7 +183,7 @@ export default function Footer() {
             Copyright © {currentYear} | <span className="font-bold text-white tracking-widest">KSR HOMES</span> | All rights reserved
           </p>
           <p className="text-sandstone/80 text-xs md:text-sm text-center md:text-right">
-            Crafted by <a href="#" className="font-bold text-sandstone hover:text-white transition-colors tracking-wide min-h-[44px] inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-offset-ksr-dark rounded-md">ValueVault</a>
+            Crafted by <a href="https://thecontentgang.com" className="font-bold text-sandstone hover:text-white transition-colors tracking-wide min-h-[44px] inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-offset-ksr-dark rounded-md">thecontentgang</a>
           </p>
         </div>
 
