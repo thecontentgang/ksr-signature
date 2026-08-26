@@ -1,7 +1,6 @@
 import { motion, type Variants, useReducedMotion } from 'framer-motion';
 
-// --- Project Status Data (20 Images with Bento Grid Sizing) ---
-// Mixing squares, vertical (tall) rectangles, and horizontal (wide) rectangles
+// --- Project Status Data (19 Images with Bento Grid Sizing) ---
 const STATUS_IMAGES = [
   {
     id: 1,
@@ -117,12 +116,6 @@ const STATUS_IMAGES = [
     alt: "Construction Update 19",
     gridSpan: "col-span-1 row-span-1", // Standard Square
   },
-  {
-    id: 20,
-    src: "/project-status/status-20.jpeg",
-    alt: "Construction Update 20",
-    gridSpan: "col-span-2 md:col-span-3 lg:col-span-4 row-span-2", // Massive Hero Footer Rectangle
-  }
 ];
 
 export default function ProjectStatus() {
@@ -177,13 +170,13 @@ export default function ProjectStatus() {
           </motion.p>
         </div>
 
-        {/* Dynamic Bento Grid */}
+        {/* Dynamic Bento Grid - Added `grid-flow-dense` to automatically fill gaps */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px]"
+          className="grid grid-flow-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px]"
         >
           {STATUS_IMAGES.map((image) => (
             <motion.div
