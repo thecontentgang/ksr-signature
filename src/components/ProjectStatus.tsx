@@ -1,121 +1,24 @@
 import { motion, type Variants, useReducedMotion } from 'framer-motion';
-
-// --- Project Status Data (19 Images with Bento Grid Sizing) ---
 const STATUS_IMAGES = [
-  {
-    id: 1,
-    src: "/project-status/status-1.jpeg",
-    alt: "Construction Update 1",
-    gridSpan: "col-span-1 md:col-span-2 row-span-2", // Large Feature Square/Rectangle
-  },
-  {
-    id: 2,
-    src: "/project-status/status-2.jpeg",
-    alt: "Construction Update 2",
-    gridSpan: "col-span-1 row-span-2", // Tall Vertical Portrait
-  },
-  {
-    id: 3,
-    src: "/project-status/status-3.jpeg",
-    alt: "Construction Update 3",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 4,
-    src: "/project-status/status-4.jpeg",
-    alt: "Construction Update 4",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 5,
-    src: "/project-status/status-5.jpeg",
-    alt: "Construction Update 5",
-    gridSpan: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1", // Wide Horizontal Rectangle
-  },
-  {
-    id: 6,
-    src: "/project-status/status-6.jpeg",
-    alt: "Construction Update 6",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 7,
-    src: "/project-status/status-7.jpeg",
-    alt: "Construction Update 7",
-    gridSpan: "col-span-1 row-span-2", // Tall Vertical Portrait
-  },
-  {
-    id: 8,
-    src: "/project-status/status-8.jpeg",
-    alt: "Construction Update 8",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 9,
-    src: "/project-status/status-9.jpeg",
-    alt: "Construction Update 9",
-    gridSpan: "col-span-1 md:col-span-2 row-span-2", // Large Feature Square/Rectangle
-  },
-  {
-    id: 10,
-    src: "/project-status/status-10.jpeg",
-    alt: "Construction Update 10",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 11,
-    src: "/project-status/status-11.jpeg",
-    alt: "Construction Update 11",
-    gridSpan: "col-span-1 md:col-span-2 lg:col-span-3 row-span-1", // Very Wide Panorama Rectangle
-  },
-  {
-    id: 12,
-    src: "/project-status/status-12.jpeg",
-    alt: "Construction Update 12",
-    gridSpan: "col-span-1 row-span-2", // Tall Vertical Portrait
-  },
-  {
-    id: 13,
-    src: "/project-status/status-13.jpeg",
-    alt: "Construction Update 13",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 14,
-    src: "/project-status/status-14.jpeg",
-    alt: "Construction Update 14",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 15,
-    src: "/project-status/status-15.jpeg",
-    alt: "Construction Update 15",
-    gridSpan: "col-span-1 md:col-span-2 row-span-2", // Large Feature
-  },
-  {
-    id: 16,
-    src: "/project-status/status-16.jpeg",
-    alt: "Construction Update 16",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
-  {
-    id: 17,
-    src: "/project-status/status-17.jpeg",
-    alt: "Construction Update 17",
-    gridSpan: "col-span-1 md:col-span-2 lg:col-span-2 row-span-1", // Wide Horizontal Rectangle
-  },
-  {
-    id: 18,
-    src: "/project-status/status-18.jpeg",
-    alt: "Construction Update 18",
-    gridSpan: "col-span-1 row-span-2", // Tall Vertical Portrait
-  },
-  {
-    id: 19,
-    src: "/project-status/status-19.jpeg",
-    alt: "Construction Update 19",
-    gridSpan: "col-span-1 row-span-1", // Standard Square
-  },
+  { id: 1, src: "/project-status/status-1.jpeg", alt: "Construction Update 1" },
+  { id: 2, src: "/project-status/status-2.jpeg", alt: "Construction Update 2" },
+  { id: 3, src: "/project-status/status-3.jpeg", alt: "Construction Update 3" },
+  { id: 4, src: "/project-status/status-4.jpeg", alt: "Construction Update 4" },
+  { id: 5, src: "/project-status/status-5.jpeg", alt: "Construction Update 5" },
+  { id: 6, src: "/project-status/status-6.jpeg", alt: "Construction Update 6" },
+  { id: 7, src: "/project-status/status-7.jpeg", alt: "Construction Update 7" },
+  { id: 8, src: "/project-status/status-8.jpeg", alt: "Construction Update 8" },
+  { id: 9, src: "/project-status/status-9.jpeg", alt: "Construction Update 9" },
+  { id: 10, src: "/project-status/status-10.jpeg", alt: "Construction Update 10" },
+  { id: 11, src: "/project-status/status-11.jpeg", alt: "Construction Update 11" },
+  { id: 12, src: "/project-status/status-12.jpeg", alt: "Construction Update 12" },
+  { id: 13, src: "/project-status/status-13.jpeg", alt: "Construction Update 13" },
+
+  { id: 15, src: "/project-status/status-15.jpeg", alt: "Construction Update 15" },
+  { id: 16, src: "/project-status/status-16.jpeg", alt: "Construction Update 16" },
+  { id: 17, src: "/project-status/status-17.jpeg", alt: "Construction Update 17" },
+  { id: 18, src: "/project-status/status-18.jpeg", alt: "Construction Update 18" },
+  { id: 19, src: "/project-status/status-19.jpeg", alt: "Construction Update 19" },
 ];
 
 export default function ProjectStatus() {
@@ -171,34 +74,71 @@ export default function ProjectStatus() {
         </div>
 
         {/* Dynamic Bento Grid - Added `grid-flow-dense` to automatically fill gaps */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-flow-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px]"
-        >
-          {STATUS_IMAGES.map((image) => (
-            <motion.div
-              key={image.id}
-              variants={itemVariants}
-              className={`relative rounded-2xl md:rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-200 ${image.gridSpan}`}
-            >
-              {/* Image with Object Cover to perfectly adapt to grid shapes */}
-              <img 
-                src={image.src} 
-                alt={image.alt}
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-                decoding="async"
-              />
-              
-              {/* Optional: Subtle gradient overlay for a premium feel */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-            </motion.div>
-          ))}
-        </motion.div>
+        <motion.div
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-100px" }}
+  className="
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-3
+    gap-4
+    md:gap-6
+  "
+>
+  {STATUS_IMAGES.map((image) => (
+    <motion.div
+      key={image.id}
+      variants={itemVariants}
+      className="
+        relative
+        aspect-square
+        rounded-2xl
+        md:rounded-3xl
+        overflow-hidden
+        group
+        shadow-md
+        hover:shadow-2xl
+        transition-all
+        duration-500
+        border
+        border-slate-200
+        bg-slate-200
+      "
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="
+          w-full
+          h-full
+          object-cover
+          object-center
+          transition-transform
+          duration-700
+          group-hover:scale-110
+        "
+        loading="lazy"
+        decoding="async"
+      />
 
+      <div className="
+        absolute
+        inset-0
+        bg-gradient-to-t
+        from-black/20
+        to-transparent
+        opacity-0
+        group-hover:opacity-100
+        transition-opacity
+        duration-500
+        pointer-events-none
+      " />
+    </motion.div>
+  ))}
+</motion.div>
       </div>
     </section>
   );
