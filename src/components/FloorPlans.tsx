@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import BrochureButton from './brochure/BrochureButton';
 
 // --- Data Structure Organized by Blocks ---
 const BLOCKS = ["Block A", "Block B", "Block C", "Block D"];
@@ -279,6 +280,25 @@ export default function PlansSection() {
               </button>
             </div>
           )}
+
+          {/* Download Brochure Action Area */}
+          <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+            <BrochureButton
+              type="direct"
+              variant="outline"
+              size="md"
+              label={`Direct Download ${activeBlock} Plan`}
+              brochureUrl={currentPlan?.image || "/KSR HOMES INDIA PVT LTD Brochure.pdf"}
+              brochureName={`${activeBlock} Floor Plan`}
+            />
+            <BrochureButton
+              type="lead"
+              variant="primary"
+              size="md"
+              label="Request Full Project Brochure"
+              brochureName="KSR Signature 4 Complete Brochure"
+            />
+          </div>
 
         </div>
       </section>

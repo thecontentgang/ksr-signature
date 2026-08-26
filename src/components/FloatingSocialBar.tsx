@@ -80,7 +80,7 @@ export default function FloatingSocialBar() {
 
         {/* 3. Instagram Button */}
         <a 
-          href="https://instagram.com/yourprofile" 
+          href="https://www.instagram.com/ksrhomeshyd/" 
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex items-center justify-center min-w-[40px] min-h-[40px] md:min-w-[48px] md:min-h-[48px] rounded-full bg-white/10 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"

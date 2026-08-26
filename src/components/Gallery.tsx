@@ -1,5 +1,6 @@
 
 import { motion, type Variants, useReducedMotion } from 'framer-motion';
+import BrochureButton from './brochure/BrochureButton';
 
 // --- Gallery Image Data ---
 // Expanded to 14 images in .png format with dynamic grid spans for a Bento Box layout.
@@ -173,7 +174,7 @@ export default function Gallery({ onOpenBrochure }: GalleryProps) {
           ))}
         </motion.div>
 
-        {/* Optional: Call to Action to Download Brochure for more images */}
+        {/* Call to Action to Download Brochure */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -181,18 +182,14 @@ export default function Gallery({ onOpenBrochure }: GalleryProps) {
           transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.4 }}
           className="mt-12 md:mt-16 text-center"
         >
-          <button 
-            onClick={(e) => {
-              e.preventDefault();
-              onOpenBrochure?.();
-            }}
-            className="inline-flex justify-center items-center gap-2 min-h-[44px] px-8 py-3.5 bg-sandstone/10 border-2 border-sandstone text-ksr-primary text-sm font-bold tracking-wider uppercase rounded-full hover:bg-sandstone hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ksr-primary"
-          >
-            <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-            Download Full Brochure
-          </button>
+          <BrochureButton
+            type="lead"
+            variant="outline"
+            size="lg"
+            label="Download Full Brochure"
+            brochureName="KSR Signature 4 Full Brochure"
+            onClick={() => onOpenBrochure?.()}
+          />
         </motion.div>
 
       </div>

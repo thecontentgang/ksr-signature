@@ -59,6 +59,50 @@
     <!-- Preconnect to Google Fonts to speed up font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data (JSON-LD) for Real Estate / Apartment Complex -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ApartmentComplex",
+      "name": "KSR Signature 4",
+      "description": "Aristocratic gated community offering premium 2 & 3 BHK apartments in Tellapur, Hyderabad. Spread across 3.5 acres with exclusive amenities. RERA Approved: P01100003703.",
+      "url": "https://signature.ksrhomes.co.in/",
+      "telephone": "+91-8599888999",
+      "email": "info@ksrhomes.co.in",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Osman Nagar Road",
+        "addressLocality": "Tellapur",
+        "addressRegion": "Telangana",
+        "postalCode": "502034",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.4578,
+        "longitude": 78.3185
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Swimming Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Clubhouse", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Gym & Fitness Center", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Badminton Court", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cricket Court", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Party Lawn", "value": true }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "INR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "7499",
+          "priceCurrency": "INR",
+          "unitText": "SQFT"
+        }
+      }
+    }
+    </script>
   </head>
   <body>
     <!-- Fallback for screen readers and users without JavaScript -->

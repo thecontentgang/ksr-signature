@@ -41,6 +41,10 @@ const FAQS = [
   {
     question: "What are the unit sizes?",
     answer: "Unit sizes range from 1,122 to 2,203 sq.ft."
+  },
+  {
+    question: "why we should consider KSR HOMES-Signature 4?",
+    answer: "High Un-Divided Share, Less densely populated community."
   }
 ];
 

@@ -1,55 +1,66 @@
-import { useState } from 'react';
-import WhyThisProject from "./components/WhyThisProject"
-import AboutProject from "./components/AboutProject"
-import HeroSection from "./components/HeroSection"
-import Highlights from "./components/Highlights"
-import Navbar from "./components/Navbar"
-import FloorPlans from "./components/FloorPlans"
-import Amenities from "./components/Amenities"
-import Gallery from "./components/Gallery"
-import ProjectStatus from "./components/ProjectStatus"
-import Location from "./components/Location"
-import Footer from "./components/Footer"
-import FloatingSocialBar  from "./components/FloatingSocialBar"
-import LeadModal from "./components/LeadModal"
-import FloatingCTA from "./components/FloatingCTA"
+import { BrochureProvider } from './context/BrochureContext';
+import { useBrochureModal } from './hooks/useBrochureModal';
+import LeadGenerationModal from './components/brochure/LeadGenerationModal';
+import WhyThisProject from './components/WhyThisProject';
+import AboutProject from './components/AboutProject';
+import HeroSection from './components/HeroSection';
+import Highlights from './components/Highlights';
+import Navbar from './components/Navbar';
+import FloorPlans from './components/FloorPlans';
+import Amenities from './components/Amenities';
+import Gallery from './components/Gallery';
+import ProjectStatus from './components/ProjectStatus';
+import Location from './components/Location';
+import Footer from './components/Footer';
+import FloatingSocialBar from './components/FloatingSocialBar';
+import FloatingCTA from './components/FloatingCTA';
 
-const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isBrochureTrigger, setIsBrochureTrigger] = useState(false);
+function LandingPageContent() {
+  const { modalState, closeModal, openLeadModal } = useBrochureModal();
 
   const openEnquiryModal = () => {
-    setIsBrochureTrigger(false);
-    setIsModalOpen(true);
+    openLeadModal({ isBrochureDownload: false });
   };
 
   const openBrochureModal = () => {
-    setIsBrochureTrigger(true);
-    setIsModalOpen(true);
+    openLeadModal({ isBrochureDownload: true });
   };
 
   return (
     <main className="max-w-[100vw] overflow-hidden">
-    <FloatingSocialBar />
-    <FloatingCTA onClick={openEnquiryModal} />
-    <LeadModal 
-      isOpen={isModalOpen} 
-      onClose={() => setIsModalOpen(false)} 
-      isBrochureDownload={isBrochureTrigger} 
-    />
-    <Navbar onOpenBrochure={openBrochureModal} />
-    <HeroSection />
-    <Highlights />
-    <AboutProject />
-    <WhyThisProject />
-    <FloorPlans />
-    <Amenities />
-    <Gallery onOpenBrochure={openBrochureModal} />
-    <ProjectStatus />
-    <Location />
-    <Footer />
+      <FloatingSocialBar />
+      <FloatingCTA onClick={openEnquiryModal} />
+
+      {/* Production-Ready Lead Generation & Brochure Modal */}
+      <LeadGenerationModal
+        isOpen={modalState.isOpen}
+        onClose={closeModal}
+        brochureUrl={modalState.brochureUrl}
+        brochureName={modalState.brochureName}
+        isBrochureDownload={modalState.isBrochureDownload}
+      />
+
+      <Navbar onOpenBrochure={openBrochureModal} />
+      <HeroSection />
+      <Highlights />
+      <AboutProject />
+      <WhyThisProject />
+      <FloorPlans />
+      <Amenities />
+      <Gallery onOpenBrochure={openBrochureModal} />
+      <ProjectStatus />
+      <Location />
+      <Footer />
     </main>
-  )
+  );
 }
 
-export default App
+const App = () => {
+  return (
+    <BrochureProvider>
+      <LandingPageContent />
+    </BrochureProvider>
+  );
+};
+
+export default App;
